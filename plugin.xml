@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+id="com.dextrys.cordova.extgap.media"
+    version="0.1.1">
+    <name>MediaEx</name>
+    <description>com.dextrys.cordova.extgap.media</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,media</keywords>
+    <repo>https://github.com/minvt/Ext-Gap-Media.git</repo>
+    <issue></issue>
+
+    <js-module src="www/MediaExError.js" name="MediaExError">
+        <clobbers target="window.MediaExError" />
+    </js-module>
+    
+    <js-module src="www/MediaEx.js" name="MediaEx">
+        <clobbers target="window.MediaEx" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MediaEx" >
+                <param name="android-package" value="com.dextrys.cordova.extgap.media.AudioHandler"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        </config-file>
+        
+        <source-file src="src/android/AudioHandler.java" target-dir="src/com/dextrys/cordova/extgap/media" />
+        <source-file src="src/android/AudioPlayer.java" target-dir="src/com/dextrys/cordova/extgap/media" />
+        <source-file src="src/android/FileHelper.java" target-dir="src/com/dextrys/cordova/extgap/media" />
+     </platform>
+     
+     <!-- ios -->
+	 <!--
+     <platform name="ios">    
+         <config-file target="config.xml" parent="/*">
+             <feature name="Media">
+                 <param name="ios-package" value="CDVSound" /> 
+             </feature>
+         </config-file>
+         <header-file src="src/ios/CDVSound.h" />
+         <source-file src="src/ios/CDVSound.m" />
+     </platform>
+    -->
+            
+</plugin>
