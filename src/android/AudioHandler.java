@@ -30,6 +30,7 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import java.util.HashMap;
+import android.util.Log;
 
 /**
  * This class called by CordovaActivity to play and record audio.
